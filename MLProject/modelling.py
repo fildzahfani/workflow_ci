@@ -13,8 +13,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def load_split_data(data_dir):
     X_train = pd.read_csv(os.path.join(data_dir, "X_train.csv"))
     X_test = pd.read_csv(os.path.join(data_dir, "X_test.csv"))
-    y_train = pd.read_csv(os.path.join(data_dir, "y_train.csv"))
-    y_test = pd.read_csv(os.path.join(data_dir, "y_test.csv"))
+    y_train = pd.read_csv(os.path.join(data_dir, "y_train.csv")).iloc[:, 0]
+    y_test  = pd.read_csv(os.path.join(data_dir, "y_test.csv")).iloc[:, 0]
+
     return X_train, X_test, y_train, y_test
 
 def train_basic(X_train, X_test, y_train, y_test):
@@ -40,4 +41,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
